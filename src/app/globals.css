@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Aldrich&family=Geist:wght@100..900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -5,22 +6,43 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Aldrich", monospace;
+  --font-geistMono: "Geist Mono", monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --color-scrollthumb-blue: #5e7375;
+  --color-inner-shadow: #223241;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Background Colors */
+  --color-background-primary: #0b1318;
+  --color-background-primary-low-opacity: #0b1318;
+  --color-background-secondary: #012021;
+  --color-background-dark: #151f28;
+  --color-background-blue: #57a8ad;
+  --color-background-gray: #032628;
+  --color-background-hover: #0f191f;
+  --color-background-green: #00ff90;
+  --color-background-green-low-opacity: #00ff9044;
+  --color-background-bluevariant: #1e3a3f;
+  --color-background-lightblue: #72eaee;
+  --color-background-monitor-button: #223241;
+
+  /* Text Colors */
+  --color-text-gray: #8facad;
+  --color-text-blue: #6b9598;
+  --color-text-white: #c9e4e5;
+  --color-text-green: #00ff90;
+  --color-text-brightgreen: #26ef2e;
+  --color-text-lightblue: #6b9598;
+  --color-text-red: #e53c65;
+  --color-text-black: #011516;
+  --color-text-icons: #87babe;
+  --color-text-yellow: #bceb61;
+  --color-text-amber: #ff9900;
+  --color-text-lime: #a6fb00;
+
+  /* Hover Colors */
+  --color-hover-lightblue: #72eaee;
+  --color-hover-button: #1c2834;
 }
