@@ -1,14 +1,17 @@
-import { ColorTheme, DEFAULT_COLOR_THEME } from '@/types/color.types';
-import { applyThemeColors } from '@/utils/theme';
-import { useState } from 'react';
+import { ColorTheme, DEFAULT_COLOR_THEME } from "@/types/color.types";
+import { applyThemeColors } from "@/utils/theme";
+import { useLocalStorage } from "./useLocalStorage";
 
 export const useColorTheme = () => {
-  const [colors, setColors] = useState<ColorTheme>(DEFAULT_COLOR_THEME);
+  const [colors, setColors] = useLocalStorage<ColorTheme>(
+    "colorTheme",
+    DEFAULT_COLOR_THEME
+  );
 
   const handleColorChange = (colorKey: keyof ColorTheme, value: string) => {
-    setColors(prev => ({
+    setColors((prev) => ({
       ...prev,
-      [colorKey]: value
+      [colorKey]: value,
     }));
   };
 
@@ -25,6 +28,6 @@ export const useColorTheme = () => {
     colors,
     handleColorChange,
     applyColors,
-    resetColors
+    resetColors,
   };
 };

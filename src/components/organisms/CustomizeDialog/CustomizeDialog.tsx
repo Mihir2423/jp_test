@@ -16,6 +16,7 @@ const CustomizeDialog: React.FC<Props> = (props) => {
     useColorTheme();
 
   useEffect(() => {
+    applyColors();
     if (props.open) {
       dialogRef.current?.showModal();
     } else {
