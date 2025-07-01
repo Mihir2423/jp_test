@@ -8,7 +8,7 @@ interface ColorItem {
   value: string;
 }
 
-interface ColorSectionProps {
+export interface ColorSectionProps {
   title: string;
   colors: ColorItem[];
   onColorChange: (key: string, value: string) => void;

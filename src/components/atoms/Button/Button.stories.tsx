@@ -14,6 +14,7 @@ const meta: Meta<typeof Button> = {
     children: { control: "text" },
     disabled: { control: "boolean" },
     onClick: { action: "clicked" },
+    className: { control: "text" },
   },
 };
 
@@ -28,12 +29,6 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    children: "Secondary Button",
-  },
-};
 
 export const Disabled: Story = {
   args: {
@@ -46,6 +41,6 @@ export const Disabled: Story = {
 export const CustomClass: Story = {
   args: {
     children: "Custom Styled Button",
-    className: "border border-gray-300",
+    className: "border border-gray-300 bg-black text-white",
   },
 };
