@@ -8,10 +8,13 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@storybook/react": "^9.0.15",
+    "@testing-library/react": "^16.3.0",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -22,12 +25,16 @@
     "@storybook/addon-viewport": "^9.0.8",
     "@storybook/nextjs": "^9.0.15",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
     "eslint-plugin-storybook": "^9.0.15",
+    "jest": "^30.0.3",
+    "jest-environment-jsdom": "^30.0.2",
     "storybook": "^9.0.15",
     "tailwindcss": "^4",
     "typescript": "^5"
