@@ -11,7 +11,6 @@ jest.mock("./useLocalStorage", () => ({
   useLocalStorage: jest.fn(),
 }));
 
-// 2. Then import the mocked versions
 const mockApplyThemeColors = applyThemeColors as jest.MockedFunction<
   typeof applyThemeColors
 >;
@@ -58,6 +57,14 @@ describe("useColorTheme", () => {
     });
 
     it("should handle multiple color changes", () => {
+      let storedValue = DEFAULT_COLOR_THEME;
+      const mockSetLocalStorage = jest.fn((updater) => {
+        storedValue =
+          typeof updater === "function" ? updater(storedValue) : updater;
+      });
+
+      mockUseLocalStorage.mockReturnValue([storedValue, mockSetLocalStorage]);
+
       const { result } = renderHook(() => useColorTheme());
       const changes = [
         { key: "primaryColor", value: "#ff0000" },
@@ -71,12 +78,7 @@ describe("useColorTheme", () => {
       });
 
       expect(mockSetLocalStorage).toHaveBeenCalledTimes(changes.length);
-      let finalState = DEFAULT_COLOR_THEME;
-      mockSetLocalStorage.mock.calls.forEach(([updater]) => {
-        finalState = updater(finalState);
-      });
-
-      expect(finalState).toEqual({
+      expect(storedValue).toEqual({
         ...DEFAULT_COLOR_THEME,
         primaryColor: "#ff0000",
         secondaryColor: "#00ff00",
