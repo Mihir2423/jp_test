@@ -21,7 +21,6 @@ type Story = StoryObj<typeof ColorInput>;
 export const Default: Story = {
   args: {
     label: "Background Color",
-    value: "#3b82f6",
   },
 };
 
