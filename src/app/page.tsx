@@ -1,5 +1,5 @@
 "use client";
-import CustomizeDialog from "@/components/CustomizeDialog";
+import CustomizeDialog from "@/components/organisms/CustomizeDialog/CustomizeDialog";
 import { useState } from "react";
 
 export default function Home() {
@@ -8,20 +8,20 @@ export default function Home() {
   return (
     <div className="bg-background-dark h-screen overflow-auto">
       <div className="h-full">
-        <header className="border-background-bluevariant py-2 px-4 w-full h-[32px] flex text-[12px] text-text-blue border-b">
+        <header className="flex px-4 py-2 border-b border-background-bluevariant w-full h-[32px] text-[12px] text-text-blue">
           <div className="flex-[0.8]">Token</div>{" "}
           <div className="flex-1 pl-3">Balance</div>
           <div className="flex-1">Amount</div>
           <div className="flex-1">Fees</div>
-          <div className="flex-[0.5] flex justify-end">Actions</div>
+          <div className="flex flex-[0.5] justify-end">Actions</div>
         </header>
-        <main className="text-text-white text-[13px]">
+        <main className="text-[13px] text-text-white">
           {new Array(10).fill(0).map((_, index) => {
             const amount = (Math.random() * 10).toFixed(3);
             const positive = Math.random() > 0.5;
             const value = (Math.random() * 100).toFixed(2);
             return (
-              <div className="flex cursor-pointer duration-200 border-b border-background-bluevariant px-4 w-full hover:bg-hover-button">
+              <div key={index} className="flex hover:bg-hover-button px-4 border-b border-background-bluevariant w-full duration-200 cursor-pointer">
                 <div className="flex-[0.8] py-1">
                   <p className="font-medium">SOL</p>
                   <p className="text-text-blue">Solana</p>
@@ -42,19 +42,19 @@ export default function Home() {
                 >
                   {amount} SOL
                 </div>
-                <div className="flex-1 flex items-center gap-1">
+                <div className="flex flex-1 items-center gap-1">
                   0.01 <span className="text-text-blue">(0.78%)</span>
                 </div>
-                <div className="flex-[0.5] flex items-center text-text-red justify-end">
-                  <button className="hover:bg-text-red/10 cursor-pointer duration-200 rounded p-1">
+                <div className="flex flex-[0.5] justify-end items-center text-text-red">
+                  <button className="p-1 rounded hover:bg-text-red/10 duration-200 cursor-pointer">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="size-4"
                     >
                       <path d="M3 6h18" />
@@ -69,14 +69,14 @@ export default function Home() {
             );
           })}
         </main>
-        <div className="flex gap-4 items-center justify-center mt-3">
+        <div className="flex justify-center items-center gap-4 mt-3">
           <button
             onClick={() => setCustomizeDialogOpen(true)}
-            className="my-3 bg-background-lightblue text-[14px] font-medium hover:brightness-110 duration-200 rounded py-1.5 cursor-pointer px-4"
+            className="bg-background-lightblue hover:brightness-110 my-3 px-4 py-1.5 rounded font-medium text-[14px] duration-200 cursor-pointer"
           >
             Customize
           </button>
-          <button className="my-3 text-text-blue text-[14px] duration-200 hover:bg-hover-button font-medium rounded py-1.5 cursor-pointer px-4">
+          <button className="hover:bg-hover-button my-3 px-4 py-1.5 rounded font-medium text-[14px] text-text-blue duration-200 cursor-pointer">
             Reset Default
           </button>
         </div>
