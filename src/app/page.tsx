@@ -1,9 +1,11 @@
 "use client";
 import CustomizeDialog from "@/components/organisms/CustomizeDialog/CustomizeDialog";
+import { useColorTheme } from "@/hooks/useColorTheme";
 import { useState } from "react";
 
 export default function Home() {
   const [customizeDialogOpen, setCustomizeDialogOpen] = useState(false);
+  const { resetColors } = useColorTheme();
 
   return (
     <div className="bg-background-dark h-screen overflow-auto">
@@ -21,7 +23,10 @@ export default function Home() {
             const positive = Math.random() > 0.5;
             const value = (Math.random() * 100).toFixed(2);
             return (
-              <div key={index} className="flex hover:bg-hover-button px-4 border-b border-background-bluevariant w-full duration-200 cursor-pointer">
+              <div
+                key={index}
+                className="flex hover:bg-hover-button px-4 border-b border-background-bluevariant w-full duration-200 cursor-pointer"
+              >
                 <div className="flex-[0.8] py-1">
                   <p className="font-medium">SOL</p>
                   <p className="text-text-blue">Solana</p>
@@ -76,7 +81,10 @@ export default function Home() {
           >
             Customize
           </button>
-          <button className="hover:bg-hover-button my-3 px-4 py-1.5 rounded font-medium text-[14px] text-text-blue duration-200 cursor-pointer">
+          <button
+            onClick={resetColors}
+            className="hover:bg-hover-button my-3 px-4 py-1.5 rounded font-medium text-[14px] text-text-blue duration-200 cursor-pointer"
+          >
             Reset Default
           </button>
         </div>
